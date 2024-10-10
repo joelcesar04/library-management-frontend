@@ -60,4 +60,3 @@ Contribuições são bem-vindas! Se você encontrar algum problema ou tiver suge
 
 ## Licença
 Este projeto está licenciado sob os termos da [MIT License](LICENSE).
->>>>>>> 0548ac318e1c27c15148e2fa073035d573b7dcd3
