@@ -1,4 +1,3 @@
-import React from 'react'
 import { BookOutlined } from '@ant-design/icons'
 
 const Logo = () => {

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Space, Tag, message } from 'antd'; 
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'; 
-import { deleteBook, getBooks } from '../../Services/livrosService';
-import { BooksContext } from '../../Components/Wrappers/BooksWrapper';
-import TableList from '../../Components/TableList/TableList';
-import DeleteBookModal from '../../Components/Modal/DeleteBookModal';
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { Space, Tag, message } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { deleteBook } from "../../Services/livrosService";
+import { BooksContext } from "../../Components/Wrappers/BooksWrapper";
+import TableList from "../../Components/TableList/TableList";
+import DeleteBookModal from "../../Components/Modal/DeleteBookModal";
 
 const BooksPage = () => {
   const { books, removeBook } = useContext(BooksContext);
@@ -14,10 +14,10 @@ const BooksPage = () => {
   const [bookTitle, setBookTitle] = useState("");
 
   const showModal = (record) => {
-    setSelectedBook(record.key)
+    setSelectedBook(record.key);
     setBookTitle(record.titulo);
-    setIsModalVisible(true)
-  }
+    setIsModalVisible(true);
+  };
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -32,14 +32,16 @@ const BooksPage = () => {
     } finally {
       setIsModalVisible(false);
     }
-  }
+  };
 
   const columns = [
     {
       title: "Título",
       dataIndex: "titulo",
       key: "titulo",
-      render: (text, record) => <Link to={`/books/details/${record.key}`}>{text}</Link>,
+      render: (text, record) => (
+        <Link to={`/books/details/${record.key}`}>{text}</Link>
+      ),
     },
     {
       title: "Autor(a)",
@@ -104,16 +106,18 @@ const BooksPage = () => {
       ),
     },
   ];
-  const registros = Array.isArray(books) ? books.map((value) => ({
-    ...value,
-    key: value.livroId
-  })) : [];
-    
+  const registros = Array.isArray(books)
+    ? books.map((value) => ({
+        ...value,
+        key: value.livroId,
+      }))
+    : [];
+
   return (
     <>
       <TableList
-        title={'Biblioteca JV - Lista de Livros'}
-        link='/books/register'
+        title={"Biblioteca JV - Lista de Livros"}
+        link="/books/register"
         columns={columns}
         registros={registros}
         addButton={"Cadastrar Novo Livro"}
@@ -126,6 +130,6 @@ const BooksPage = () => {
       />
     </>
   );
-}
+};
 
-export default BooksPage
+export default BooksPage;

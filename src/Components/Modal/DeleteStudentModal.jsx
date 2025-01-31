@@ -1,7 +1,11 @@
-import { Modal } from 'antd';
-import React from 'react'
+import { Modal } from "antd";
 
-const DeleteStudentModal = ({ isModalVisible, handleCancel, handleOk, studentName }) => {
+const DeleteStudentModal = ({
+  isModalVisible,
+  handleCancel,
+  handleOk,
+  studentName,
+}) => {
   return (
     <>
       <Modal
@@ -13,7 +17,7 @@ const DeleteStudentModal = ({ isModalVisible, handleCancel, handleOk, studentNam
         cancelText="Cancelar"
       >
         <p>
-          Deseja deletar o aluno <b>"{studentName}"</b>?
+          Deseja deletar o aluno <b>{studentName}</b>?
         </p>
       </Modal>
     </>

@@ -1,9 +1,14 @@
-import React from 'react'
-import { Modal, Form, Input, DatePicker, Button } from 'antd';
+import { Modal, Form, Input, DatePicker, Button } from "antd";
 import locale from "antd/es/date-picker/locale/pt_BR";
 const { TextArea } = Input;
 
-const AuthorModal = ({ isModalOpen, handleOk, handleCancel, handleAddAuthor, authorForm }) => {
+const AuthorModal = ({
+  isModalOpen,
+  handleOk,
+  handleCancel,
+  handleAddAuthor,
+  authorForm,
+}) => {
   return (
     <Modal
       title="Adicionar Autor"
@@ -84,6 +89,6 @@ const AuthorModal = ({ isModalOpen, handleOk, handleCancel, handleAddAuthor, aut
       </Form>
     </Modal>
   );
-}
+};
 
-export default AuthorModal
+export default AuthorModal;

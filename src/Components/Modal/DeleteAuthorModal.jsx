@@ -1,7 +1,11 @@
-import { Modal } from 'antd';
-import React from 'react'
+import { Modal } from "antd";
 
-const DeleteAuthorModal = ({ isModalVisible, handleCancel, handleOk, authorName }) => {
+const DeleteAuthorModal = ({
+  isModalVisible,
+  handleCancel,
+  handleOk,
+  authorName,
+}) => {
   return (
     <>
       <Modal

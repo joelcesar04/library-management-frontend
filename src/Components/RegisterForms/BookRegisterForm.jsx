@@ -1,11 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Form,
-  Row,
-  Col
-} from "antd";
+import { Button, Form, Row, Col } from "antd";
 import AuthorModal from "../Modal/AuthorModal";
 import CategoryModal from "../Modal/CategoryModal";
 import BookFormComponents from "../FormComponents/BookFormComponents";
@@ -28,7 +22,7 @@ const BookRegisterForm = ({
   handleCategoryCancel,
   authorForm,
   categoryForm,
-  bookForm
+  bookForm,
 }) => {
   return (
     <>

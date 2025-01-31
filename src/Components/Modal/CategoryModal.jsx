@@ -1,8 +1,13 @@
-import React from 'react';
-import { Modal, Form, Input, Button } from 'antd';
+import { Modal, Form, Input, Button } from "antd";
 const { TextArea } = Input;
 
-const CategoryModal = ({ isModalOpen, handleOk, handleCancel, handleAddCategory, categoryForm }) => {
+const CategoryModal = ({
+  isModalOpen,
+  handleOk,
+  handleCancel,
+  handleAddCategory,
+  categoryForm,
+}) => {
   return (
     <Modal
       title="Adicionar Categoria"

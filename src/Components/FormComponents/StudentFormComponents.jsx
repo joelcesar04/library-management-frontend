@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col,Form, Input, InputNumber, Row, Switch } from 'antd';
 import InputMask from 'react-input-mask';
 

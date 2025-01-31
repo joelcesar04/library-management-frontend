@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { message, Space, Tag } from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'; 
-import { StudentsContext } from '../../Components/Wrappers/StudentsWrapper';
-import { deleteStudent } from '../../Services/alunosService';
-import TableList from '../../Components/TableList/TableList'
-import DeleteStudentModal from '../../Components/Modal/DeleteStudentModal'
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { message, Space, Tag } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { StudentsContext } from "../../Components/Wrappers/StudentsWrapper";
+import { deleteStudent } from "../../Services/alunosService";
+import TableList from "../../Components/TableList/TableList";
+import DeleteStudentModal from "../../Components/Modal/DeleteStudentModal";
 
 const StudentsPage = () => {
   const { students, removeStudent } = useContext(StudentsContext);
@@ -17,21 +17,21 @@ const StudentsPage = () => {
     setSelectedStudent(record.matricula);
     setStudentName(record.nome);
     setIsModalVisible(true);
-  }
+  };
   const handleCancel = () => {
     setIsModalVisible(false);
-  }
+  };
   const handleOk = async () => {
     try {
-      await deleteStudent(selectedStudent)
+      await deleteStudent(selectedStudent);
       removeStudent(selectedStudent);
       message.success("Aluno removido com sucesso.");
     } catch (error) {
-      message.error(error.message)
+      message.error(error.message);
     } finally {
       setIsModalVisible(false);
     }
-  }
+  };
   const formatPhoneNumber = (phoneNumber) => {
     if (!phoneNumber) return "";
 
@@ -45,7 +45,7 @@ const StudentsPage = () => {
     }
 
     return phoneNumber; // Retorna o número original se não puder formatar
-  }
+  };
   const registros = Array.isArray(students)
     ? students.map((value) => ({
         ...value,
@@ -77,7 +77,7 @@ const StudentsPage = () => {
       title: "Celular",
       dataIndex: "telefone",
       key: "telefone",
-      render: (text) => formatPhoneNumber(text)
+      render: (text) => formatPhoneNumber(text),
     },
     {
       title: "Ativo",
@@ -122,6 +122,6 @@ const StudentsPage = () => {
       />
     </>
   );
-}
+};
 
-export default StudentsPage
+export default StudentsPage;

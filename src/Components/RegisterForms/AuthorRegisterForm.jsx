@@ -1,7 +1,6 @@
-import React from 'react'
-import { Button, Col, Form, Row } from 'antd';
-import { Link } from 'react-router-dom';
-import AuthorFormComponents from '../FormComponents/AuthorFormComponents';
+import { Button, Col, Form, Row } from "antd";
+import { Link } from "react-router-dom";
+import AuthorFormComponents from "../FormComponents/AuthorFormComponents";
 
 const AuthorRegisterForm = ({ handleAddAuthor, authorForm }) => {
   return (
@@ -41,4 +40,4 @@ const AuthorRegisterForm = ({ handleAddAuthor, authorForm }) => {
   );
 };
 
-export default AuthorRegisterForm
+export default AuthorRegisterForm;

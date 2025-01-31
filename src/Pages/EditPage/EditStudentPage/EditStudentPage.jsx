@@ -1,9 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import { Form, message } from 'antd';
-import { getStudentByMatric, updateStudent } from '../../../Services/alunosService';
-import { StudentsContext } from '../../../Components/Wrappers/StudentsWrapper';
-import StudentEditForm from '../../../Components/EditForms/StudentEditForm';
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Form, message } from "antd";
+import {
+  getStudentByMatric,
+  updateStudent,
+} from "../../../Services/alunosService";
+import { StudentsContext } from "../../../Components/Wrappers/StudentsWrapper";
+import StudentEditForm from "../../../Components/EditForms/StudentEditForm";
 
 const EditStudentPage = () => {
   const { editStudent } = useContext(StudentsContext);
@@ -21,15 +24,15 @@ const EditStudentPage = () => {
         const result = await getStudentByMatric(matricula);
         setStudentName(result.nome);
         studentForm.setFieldsValue({
-          ...result
-        })
+          ...result,
+        });
       } catch (error) {
         message.error(error.message);
-        navigate('/students');
+        navigate("/students");
       }
-    }
+    };
     fetchStudent();
-  }, [matricula])
+  }, [matricula]);
 
   const handleUpdateStudent = async (values) => {
     try {
@@ -38,8 +41,8 @@ const EditStudentPage = () => {
         curso: values.curso,
         email: values.email,
         telefone: values.telefone,
-        ativo: values.ativo
-      })
+        ativo: values.ativo,
+      });
 
       if (result) {
         editStudent(result);
@@ -50,9 +53,9 @@ const EditStudentPage = () => {
         message.error("Erro ao atualizar aluno!");
       }
     } catch (error) {
-      message.error(error.message)
+      message.error(error.message);
     }
-  }
+  };
 
   return (
     <>
@@ -63,6 +66,6 @@ const EditStudentPage = () => {
       />
     </>
   );
-}
+};
 
-export default EditStudentPage
+export default EditStudentPage;

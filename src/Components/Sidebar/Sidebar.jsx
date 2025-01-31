@@ -1,6 +1,5 @@
 import { Layout } from 'antd';
-import React from 'react'
-import Logo from '../Logo/Logo';
+import Logo from "../Logo/Logo";
 import MenuList from '../MenuList/MenuList';
 import ToggleThemeButton from '../ToggleThemeButton/ToggleThemeButton';
 const { Sider } = Layout;
@@ -15,6 +14,6 @@ const Sidebar = ({ darkTheme, toggleTheme }) => {
       </Sider>
     </>
   );
-}
+};
 
 export default Sidebar

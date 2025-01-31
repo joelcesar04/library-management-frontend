@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Col, Form, Row } from 'antd';
 import AuthorFormComponents from '../FormComponents/AuthorFormComponents'
 import { Link } from 'react-router-dom';

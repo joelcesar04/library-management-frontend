@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Form, message } from 'antd';
-import { addAuthor } from '../../../Services/autoresService';
-import { AuthorsContext } from '../../../Components/Wrappers/AuthorsWrapper';
-import AuthorRegisterForm from '../../../Components/RegisterForms/AuthorRegisterForm';
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { Form, message } from "antd";
+import { addAuthor } from "../../../Services/autoresService";
+import { AuthorsContext } from "../../../Components/Wrappers/AuthorsWrapper";
+import AuthorRegisterForm from "../../../Components/RegisterForms/AuthorRegisterForm";
 
 const RegisterAuthorPage = () => {
   const { latestAuthor } = useContext(AuthorsContext);
@@ -33,7 +33,7 @@ const RegisterAuthorPage = () => {
 
   return (
     <>
-      <AuthorRegisterForm 
+      <AuthorRegisterForm
         handleAddAuthor={handleAddAuthor}
         authorForm={authorForm}
       />

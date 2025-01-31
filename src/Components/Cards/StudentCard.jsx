@@ -1,16 +1,17 @@
-import React from 'react'
-import { EyeOutlined, UserOutlined } from '@ant-design/icons'
-import { Card, Space, Statistic } from 'antd';
-import { Link } from 'react-router-dom';
+import { EyeOutlined, UserOutlined } from "@ant-design/icons";
+import { Card, Space, Statistic } from "antd";
+import { Link } from "react-router-dom";
 
 const StudentCard = ({ title, data, route }) => {
-  const alunosAtivos = Array.isArray(data) && data[0] && 'ativo' in data[0]
-    ? data.filter(item => item.ativo).length
-    : 0;
+  const alunosAtivos =
+    Array.isArray(data) && data[0] && "ativo" in data[0]
+      ? data.filter((item) => item.ativo).length
+      : 0;
 
-  const alunosInativos = Array.isArray(data) && data[0] && "ativo" in data[0]
-    ? data.filter((item) => !item.ativo).length
-    : 0;
+  const alunosInativos =
+    Array.isArray(data) && data[0] && "ativo" in data[0]
+      ? data.filter((item) => !item.ativo).length
+      : 0;
 
   return (
     <Card
@@ -41,6 +42,6 @@ const StudentCard = ({ title, data, route }) => {
       </Space>
     </Card>
   );
-}
+};
 
-export default StudentCard
+export default StudentCard;

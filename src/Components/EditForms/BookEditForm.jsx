@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, Row, Col } from "antd";
 import AuthorModal from "../Modal/AuthorModal";

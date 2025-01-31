@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { getBookById } from '../../../Services/livrosService'
-import { Badge } from 'antd';
-import Details from '../../../Components/Details/Details'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getBookById } from "../../../Services/livrosService";
+import { Badge } from "antd";
+import Details from "../../../Components/Details/Details";
 
 const DetailsBookPage = () => {
   const { id } = useParams();
@@ -96,12 +96,12 @@ const DetailsBookPage = () => {
   return (
     <>
       <Details
-        detailTitle='Detalhes do Livro:'
+        detailTitle="Detalhes do Livro:"
         title={`${book.titulo} - ${book.autor.nome}`}
         items={items}
       />
     </>
   );
-}
+};
 
-export default DetailsBookPage
+export default DetailsBookPage;

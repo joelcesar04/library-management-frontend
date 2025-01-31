@@ -1,6 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { Descriptions, Button } from 'antd';
+import { Link } from "react-router-dom";
+import { Descriptions, Button } from "antd";
 
 const Details = ({ detailTitle, title, items }) => {
   return (
@@ -10,11 +9,11 @@ const Details = ({ detailTitle, title, items }) => {
         <h2 className="title">{title}</h2>
       </div>
       <Descriptions layout="vertical" bordered items={items} />
-      <Button style={{marginTop: '15px'}} ghost type='primary'>
+      <Button style={{ marginTop: "15px" }} ghost type="primary">
         <Link to={"/books"}>Voltar</Link>
       </Button>
     </>
   );
-}
+};
 
-export default Details
+export default Details;

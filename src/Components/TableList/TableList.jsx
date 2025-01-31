@@ -1,9 +1,7 @@
-import React from 'react';
-import { Button, Table } from 'antd'; 
-import { PlusOutlined } from '@ant-design/icons'; 
-import './TableList.css'
-import { Link } from 'react-router-dom';
-
+import { Button, Table } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import "./TableList.css";
+import { Link } from "react-router-dom";
 
 const TableList = ({ title, link, columns, registros, addButton }) => {
   return (
@@ -27,4 +25,4 @@ const TableList = ({ title, link, columns, registros, addButton }) => {
   );
 };
 
-export default TableList
+export default TableList;

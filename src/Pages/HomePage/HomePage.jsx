@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import Dashboard from '../../Components/Dashboard/Dashboard'
+import { useState, useEffect } from "react";
+import Dashboard from "../../Components/Dashboard/Dashboard";
 import { getStudents } from "../../Services/alunosService";
 import { getBooks } from "../../Services/livrosService";
 
@@ -13,19 +13,16 @@ const HomePage = () => {
       const resultStudentes = await getStudents();
 
       setBooks(resultBooks);
-      setStudents(resultStudentes)
-    }
+      setStudents(resultStudentes);
+    };
     getData();
-  }, [])
+  }, []);
 
   return (
     <>
-      <Dashboard
-        books={books}
-        students={students}
-      />
+      <Dashboard books={books} students={students} />
     </>
   );
-}
+};
 
-export default HomePage
+export default HomePage;

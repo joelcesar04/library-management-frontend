@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, message } from "antd";
-import { addBook } from '../../../Services/livrosService'; 
+import { addBook } from "../../../Services/livrosService";
 import { addAuthor, getAuthors } from "../../../Services/autoresService";
-import { getCategories, addCategory } from '../../../Services/categoryService'; 
-import BookRegisterForm from '../../../Components/RegisterForms/BookRegisterForm'
-import { BooksContext } from '../../../Components/Wrappers/BooksWrapper';
-
+import { getCategories, addCategory } from "../../../Services/categoryService";
+import BookRegisterForm from "../../../Components/RegisterForms/BookRegisterForm";
+import { BooksContext } from "../../../Components/Wrappers/BooksWrapper";
 
 const RegisterBookPage = () => {
   const { latestBook } = useContext(BooksContext);
@@ -16,7 +15,7 @@ const RegisterBookPage = () => {
 
   const navigate = useNavigate();
 
-  const [authorForm] = Form.useForm()
+  const [authorForm] = Form.useForm();
   const [categoryForm] = Form.useForm();
   const [bookForm] = Form.useForm();
 
@@ -36,7 +35,7 @@ const RegisterBookPage = () => {
   const handleCategoryOk = () => {
     setIsCategoryModalOpen(false);
   };
-  
+
   const handleAuthorCancel = () => {
     setIsAuthorModalOpen(false);
     authorForm.resetFields();
@@ -47,10 +46,10 @@ const RegisterBookPage = () => {
   };
 
   const handleCategoryChange = (value) => {
-    bookForm.setFieldsValue({ 'categoria': value });
+    bookForm.setFieldsValue({ categoria: value });
   };
   const handleAuthorChange = (value) => {
-    bookForm.setFieldsValue({ 'autor': value });
+    bookForm.setFieldsValue({ autor: value });
   };
 
   useEffect(() => {
@@ -65,15 +64,15 @@ const RegisterBookPage = () => {
     const fetchCategories = async () => {
       try {
         const result = await getCategories();
-        setCategories(result)
+        setCategories(result);
       } catch (error) {
-        console.error("Erro ao buscar categorias:", error)
+        console.error("Erro ao buscar categorias:", error);
       }
-    }
+    };
     fetchAuthors();
     fetchCategories();
   }, []);
-  
+
   const handleAddAuthor = async (values) => {
     try {
       const newAuthor = await addAuthor({
@@ -85,16 +84,15 @@ const RegisterBookPage = () => {
 
       if (newAuthor) {
         setAuthors([...authors, newAuthor]);
-        message.success('Autor adicionado com sucesso!');
+        message.success("Autor adicionado com sucesso!");
         handleAuthorCancel();
       } else {
-        message.error("Erro ao adicionar autor!")        
+        message.error("Erro ao adicionar autor!");
       }
-
     } catch (error) {
-      message.error(error.message || "Erro ao adicionar autor!")
+      message.error(error.message || "Erro ao adicionar autor!");
     }
-  }
+  };
   const handleAddCategory = async (values) => {
     try {
       const newCategory = await addCategory({
@@ -104,16 +102,15 @@ const RegisterBookPage = () => {
 
       if (newCategory) {
         setCategories([...categories, newCategory]);
-        message.success('Categoria adicionada com sucesso!');
+        message.success("Categoria adicionada com sucesso!");
         handleCategoryCancel();
       } else {
-        message.error("Erro ao adicionar categoria!")
+        message.error("Erro ao adicionar categoria!");
       }
-
     } catch (error) {
-      message.error(error.message || "Erro ao adicionar categoria!")
+      message.error(error.message || "Erro ao adicionar categoria!");
     }
-  }
+  };
   const handleAddBook = async (values) => {
     if (!values.autor || !values.categoria) {
       message.error("Autor ou categoria não encontrados.");
@@ -171,6 +168,6 @@ const RegisterBookPage = () => {
       />
     </>
   );
-}
+};
 
-export default RegisterBookPage
+export default RegisterBookPage;

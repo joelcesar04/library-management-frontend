@@ -1,9 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Col, Form, Row } from 'antd'
-import StudentFormComponents from '../FormComponents/StudentFormComponents'
+import { Link } from "react-router-dom";
+import { Button, Col, Form, Row } from "antd";
+import StudentFormComponents from "../FormComponents/StudentFormComponents";
 
-const StudentRegisterForm = ({ studentForm, handleAddStudent, handlePhoneChange, phone }) => {
+const StudentRegisterForm = ({
+  studentForm,
+  handleAddStudent,
+  handlePhoneChange,
+  phone,
+}) => {
   return (
     <>
       <h1 className="title">Biblioteca JV - Cadastro de Alunos</h1>
@@ -43,6 +47,6 @@ const StudentRegisterForm = ({ studentForm, handleAddStudent, handlePhoneChange,
       </Form>
     </>
   );
-}
+};
 
-export default StudentRegisterForm
+export default StudentRegisterForm;

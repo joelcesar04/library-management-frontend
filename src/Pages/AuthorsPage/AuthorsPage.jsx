@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { message, Space } from 'antd';
-import { Link } from 'react-router-dom';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'; 
-import { deleteAuthor } from '../../Services/autoresService';
-import TableList from '../../Components/TableList/TableList';
-import DeleteAuthorModal from '../../Components/Modal/DeleteAuthorModal';
-import { AuthorsContext } from '../../Components/Wrappers/AuthorsWrapper';
+import { useContext, useState } from "react";
+import { message, Space } from "antd";
+import { Link } from "react-router-dom";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { deleteAuthor } from "../../Services/autoresService";
+import TableList from "../../Components/TableList/TableList";
+import DeleteAuthorModal from "../../Components/Modal/DeleteAuthorModal";
+import { AuthorsContext } from "../../Components/Wrappers/AuthorsWrapper";
 
 const AuthorsPage = () => {
   const { authors, removeAuthor } = useContext(AuthorsContext);
@@ -17,21 +17,21 @@ const AuthorsPage = () => {
     setSelectedAuthor(record.key);
     setAuthorName(record.nome);
     setIsModalVisible(true);
-  }
+  };
   const handleCancel = () => {
     setIsModalVisible(false);
-  }
+  };
   const handleOk = async () => {
     try {
       await deleteAuthor(selectedAuthor);
       message.success("Autor removido com sucesso.");
-      removeAuthor(selectedAuthor)
+      removeAuthor(selectedAuthor);
     } catch (error) {
-      message.error(error.message)
+      message.error(error.message);
     } finally {
       setIsModalVisible(false);
     }
-  }
+  };
 
   const columns = [
     {
@@ -94,6 +94,6 @@ const AuthorsPage = () => {
       />
     </>
   );
-}
+};
 
-export default AuthorsPage
+export default AuthorsPage;

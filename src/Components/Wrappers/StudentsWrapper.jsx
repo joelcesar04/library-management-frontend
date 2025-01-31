@@ -1,8 +1,8 @@
-import React, { createContext, useEffect, useState } from 'react'
-import { Alert } from 'antd';
-import { getStudents } from '../../Services/alunosService';
-import Loading from '../Loading/Loading';
-import { Outlet } from 'react-router-dom';
+import { createContext, useEffect, useState } from "react";
+import { Alert } from "antd";
+import { getStudents } from "../../Services/alunosService";
+import Loading from "../Loading/Loading";
+import { Outlet } from "react-router-dom";
 
 export const StudentsContext = createContext();
 
@@ -15,17 +15,17 @@ const StudentsWrapper = () => {
     setStudents((prevStudents) =>
       prevStudents.filter((student) => student.matricula !== matricula)
     );
-  }
+  };
   const latestStudent = (newStudent) => {
-    setStudents(prevStudents => [...prevStudents, newStudent])
-  }
+    setStudents((prevStudents) => [...prevStudents, newStudent]);
+  };
   const editStudent = (updateStudent) => {
     setStudents((prevStudents) =>
       prevStudents.map((student) =>
         student.alunoId === updateStudent.alunoId ? updateStudent : student
       )
     );
-  }
+  };
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -39,9 +39,9 @@ const StudentsWrapper = () => {
       } finally {
         setLoading(false);
       }
-    }
+    };
     fetchStudents();
-  }, [])
+  }, []);
 
   if (loading) {
     return <Loading tip={"Carregando..."} />;
@@ -59,4 +59,4 @@ const StudentsWrapper = () => {
   );
 };
 
-export default StudentsWrapper
+export default StudentsWrapper;

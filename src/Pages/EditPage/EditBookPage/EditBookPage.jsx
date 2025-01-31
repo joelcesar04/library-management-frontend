@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  Form,
-  message
-} from "antd";
+import { Form, message } from "antd";
 import { addAuthor, getAuthors } from "../../../Services/autoresService";
-import { getCategories, addCategory } from '../../../Services/categoryService'; 
-import { getBookById, updateBook } from '../../../Services/livrosService'; 
+import { getCategories, addCategory } from "../../../Services/categoryService";
+import { getBookById, updateBook } from "../../../Services/livrosService";
 import { BooksContext } from "../../../Components/Wrappers/BooksWrapper";
-import BookEditForm from '../../../Components/EditForms/BookEditForm';
+import BookEditForm from "../../../Components/EditForms/BookEditForm";
 import dayjs from "dayjs";
 
 const EditBookPage = () => {
@@ -64,16 +61,15 @@ const EditBookPage = () => {
 
       if (newAuthor) {
         setAuthors([...authors, newAuthor]);
-        message.success('Autor adicionado com sucesso!');
+        message.success("Autor adicionado com sucesso!");
         handleAuthorCancel();
       } else {
-        message.error("Erro ao adicionar autor!")        
+        message.error("Erro ao adicionar autor!");
       }
-
     } catch (error) {
-      message.error(error.message || "Erro ao adicionar autor!")
+      message.error(error.message || "Erro ao adicionar autor!");
     }
-  }
+  };
   const handleAddCategory = async (values) => {
     try {
       const newCategory = await addCategory({
@@ -83,32 +79,35 @@ const EditBookPage = () => {
 
       if (newCategory) {
         setCategories([...categories, newCategory]);
-        message.success('Categoria adicionada com sucesso!');
+        message.success("Categoria adicionada com sucesso!");
         handleCategoryCancel();
       } else {
-        message.error("Erro ao adicionar categoria!")
+        message.error("Erro ao adicionar categoria!");
       }
-
     } catch (error) {
-      message.error(error.message || "Erro ao adicionar categoria!")
+      message.error(error.message || "Erro ao adicionar categoria!");
     }
-  }
+  };
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
         const result = await getBookById(id);
-        setBookTitle(result.titulo)
+        setBookTitle(result.titulo);
         setInitialAutorId(result.autor ? result.autor.autorId : null);
-        setInitialCategoriaId(result.categoria ? result.categoria.categoriaId : null);
+        setInitialCategoriaId(
+          result.categoria ? result.categoria.categoriaId : null
+        );
         bookForm.setFieldsValue({
           ...result,
-          dataPublicacao: result.dataPublicacao ? dayjs(result.dataPublicacao, 'YYYY-MM-DD') : null,
+          dataPublicacao: result.dataPublicacao
+            ? dayjs(result.dataPublicacao, "YYYY-MM-DD")
+            : null,
         });
       } catch (error) {
         console.error("Erro ao buscar o livro:", error);
-        message.error('Erro ao buscar livro.');
-        navigate('/books');
+        message.error("Erro ao buscar livro.");
+        navigate("/books");
       }
     };
     const fetchAuthors = async () => {
@@ -117,18 +116,18 @@ const EditBookPage = () => {
         setAuthors(result);
       } catch (error) {
         console.error("Erro ao buscar autores:", error);
-        message.error('Erro ao buscar autores.');
+        message.error("Erro ao buscar autores.");
       }
     };
     const fetchCategories = async () => {
       try {
         const result = await getCategories();
-        setCategories(result)
+        setCategories(result);
       } catch (error) {
-        console.error("Erro ao buscar categorias:", error)
-        message.error('Erro ao buscar categorias.');
+        console.error("Erro ao buscar categorias:", error);
+        message.error("Erro ao buscar categorias.");
       }
-    }
+    };
     fetchAuthors();
     fetchCategories();
     fetchBook();
@@ -149,12 +148,12 @@ const EditBookPage = () => {
         disponivel: values.disponivel,
         autorId: values.autor,
         categoriaId: values.categoria,
-      }
+      };
 
       const updateBookId = await updateBook(id, book);
 
       if (updateBookId) {
-        editBook(updateBookId)
+        editBook(updateBookId);
         message.success("Livro atualizado com sucesso!");
         bookForm.resetFields();
         navigate("/books");
@@ -162,8 +161,8 @@ const EditBookPage = () => {
         message.error("Erro ao atualizar livro!");
       }
     } catch (error) {
-      console.error("Erro ao atualizar livro:", error)
-      message.error('Erro ao atualizar livro.');
+      console.error("Erro ao atualizar livro:", error);
+      message.error("Erro ao atualizar livro.");
     }
   };
 
@@ -194,4 +193,4 @@ const EditBookPage = () => {
   );
 };
 
-export default EditBookPage
+export default EditBookPage;

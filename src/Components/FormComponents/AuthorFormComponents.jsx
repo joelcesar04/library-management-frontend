@@ -1,4 +1,3 @@
-import React from 'react'
 import { Col, DatePicker, Form, Input, Row } from 'antd';
 import locale from "antd/es/date-picker/locale/pt_BR";
 import dayjs from 'dayjs';

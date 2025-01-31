@@ -1,18 +1,19 @@
-import React from 'react'
-import { EyeOutlined, ReadOutlined } from '@ant-design/icons'
-import { Card, Space, Statistic } from 'antd';
-import { Link } from 'react-router-dom';
+import { EyeOutlined, ReadOutlined } from "@ant-design/icons";
+import { Card, Space, Statistic } from "antd";
+import { Link } from "react-router-dom";
 
 const BookCard = ({ title, data, route }) => {
   const dataCounts = Array.isArray(data) ? data.length : 0;
 
-  const livrosDisponiveis = Array.isArray(data) && data[0] && 'disponivel' in data[0]
-  ? data.filter(item => item.disponivel).length
-  : 0;
+  const livrosDisponiveis =
+    Array.isArray(data) && data[0] && "disponivel" in data[0]
+      ? data.filter((item) => item.disponivel).length
+      : 0;
 
-  const livrosEmprestados = Array.isArray(data) && data[0] && 'disponivel' in data[0]
-    ? data.filter(item => !item.disponivel).length
-    : 0;
+  const livrosEmprestados =
+    Array.isArray(data) && data[0] && "disponivel" in data[0]
+      ? data.filter((item) => !item.disponivel).length
+      : 0;
 
   return (
     <Card
@@ -44,6 +45,6 @@ const BookCard = ({ title, data, route }) => {
       </Space>
     </Card>
   );
-}
+};
 
-export default BookCard
+export default BookCard;

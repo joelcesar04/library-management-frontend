@@ -1,7 +1,11 @@
-import React from 'react'
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
-const DeleteBookModal = ({ bookTitle, isModalVisible, handleCancel, handleOk }) => {
+const DeleteBookModal = ({
+  bookTitle,
+  isModalVisible,
+  handleCancel,
+  handleOk,
+}) => {
   return (
     <>
       <Modal
@@ -12,7 +16,9 @@ const DeleteBookModal = ({ bookTitle, isModalVisible, handleCancel, handleOk }) 
         okText="Deletar"
         cancelText="Cancelar"
       >
-        <p>Deseja deletar o livro <b>"{bookTitle}"</b>?</p>
+        <p>
+          Deseja deletar o livro <b>{bookTitle}</b>?
+        </p>
       </Modal>
     </>
   );

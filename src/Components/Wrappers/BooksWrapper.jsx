@@ -1,10 +1,10 @@
-import React, { createContext, useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
-import { Alert } from 'antd';
-import { getBooks } from '../../Services/livrosService';
-import { getCategoryById } from '../../Services/categoryService';
-import { getAuthorById } from '../../Services/autoresService';
-import Loading from '../Loading/Loading';
+import { createContext, useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Alert } from "antd";
+import { getBooks } from "../../Services/livrosService";
+import { getCategoryById } from "../../Services/categoryService";
+import { getAuthorById } from "../../Services/autoresService";
+import Loading from "../Loading/Loading";
 
 export const BooksContext = createContext();
 
@@ -14,26 +14,24 @@ const BooksWrapper = () => {
   const [loading, setLoading] = useState(true);
 
   const removeBook = (id) => {
-    setBooks((prevBooks) =>
-      prevBooks.filter((book) => book.livroId !== id)
-    );
-  }
+    setBooks((prevBooks) => prevBooks.filter((book) => book.livroId !== id));
+  };
   const fetchAdditionalData = async (book) => {
-    const category = await getCategoryById(book.categoria.categoriaId)
-    const author = await getAuthorById(book.autor.autorId)
+    const category = await getCategoryById(book.categoria.categoriaId);
+    const author = await getAuthorById(book.autor.autorId);
 
     return {
       ...book,
       categoria: {
         ...book.categoria,
-        nome: category.nome
+        nome: category.nome,
       },
       autor: {
         ...book.autor,
-        nome: author.nome
+        nome: author.nome,
       },
     };
-  }
+  };
   const editBook = async (book) => {
     const updateBook = await fetchAdditionalData(book);
 
@@ -42,10 +40,10 @@ const BooksWrapper = () => {
         book.livroId === updateBook.livroId ? updateBook : book
       )
     );
-  }
+  };
   const latestBook = (newBook) => {
     setBooks((prevBooks) => [...prevBooks, newBook]);
-  }
+  };
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -72,10 +70,10 @@ const BooksWrapper = () => {
   }
 
   return (
-    <BooksContext.Provider value={{ books, removeBook, editBook, latestBook}}>
+    <BooksContext.Provider value={{ books, removeBook, editBook, latestBook }}>
       <Outlet />
     </BooksContext.Provider>
   );
-}
+};
 
-export default BooksWrapper
+export default BooksWrapper;
