@@ -14,6 +14,10 @@ import StudentsWrapper from "../Components/Wrappers/StudentsWrapper";
 import StudentsPage from "../Pages/StudentsPage/StudentsPage";
 import RegisterStudentPage from "../Pages/RegisterPage/RegisterStudentPage/RegisterStudentPage";
 import EditStudentPage from "../Pages/EditPage/EditStudentPage/EditStudentPage";
+import BorrowedBookWrapper from "../Components/Wrappers/BorrowedBookWrapper";
+import BorrowedBookPage from "../Pages/BorrowedBookPage/BorrowedBookPage";
+import RegisterBorrowedBookPage from "../Pages/RegisterPage/RegisterBorrowedBookPage/RegisterBorrowedBookPage";
+
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +51,14 @@ export const router = createBrowserRouter([
           { path: "", element: <StudentsPage /> },
           { path: "register", element: <RegisterStudentPage /> },
           { path: "edit/:matricula", element: <EditStudentPage />}
+        ]
+      },
+      {
+        path: "/borrowed-books",
+        element: <BorrowedBookWrapper />,
+        children: [
+          { path: "", element: <BorrowedBookPage /> },
+          { path: "register", element: <RegisterBorrowedBookPage /> },
         ]
       }
     ],

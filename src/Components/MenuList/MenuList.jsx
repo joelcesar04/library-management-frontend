@@ -12,7 +12,9 @@ const MenuList = ({ darkTheme }) => {
         <Menu.Item key="book-1">
           <Link to="/books">Acervo de Livros</Link>
         </Menu.Item>
-        <Menu.Item key="book-2">Livros Emprestados</Menu.Item>
+        <Menu.Item key="book-2">
+          <Link to="/borrowed-books">Livros Emprestados</Link>
+        </Menu.Item>
       </Menu.SubMenu>
       <Menu.Item key="author" icon={<UserOutlined />}>
         <Link to="/authors">Autores</Link>
